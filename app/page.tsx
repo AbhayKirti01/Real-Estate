@@ -9,6 +9,7 @@ import Hero from "@/components/Hero";
 import CinematicAbout from "@/components/CinematicAbout";
 import PropertyCategories from "@/components/PropertyCategories";
 import FeaturedProperties from "@/components/FeaturedProperties";
+import SavedProperties from "@/components/SavedProperties";
 import ThreeDShowcase from "@/components/ThreeDShowcase";
 import TrustSection from "@/components/TrustSection";
 import ContactSection from "@/components/ContactSection";
@@ -36,8 +37,9 @@ export default function Home() {
             { num: '01', href: '#home' },
             { num: '02', href: '#about' },
             { num: '03', href: '#properties' },
-            { num: '04', href: '#showcase' },
-            { num: '05', href: '#contact' }
+            { num: '04', href: '#saved' },
+            { num: '05', href: '#showcase' },
+            { num: '06', href: '#contact' }
           ].map((item, i) => (
             <a 
               key={i} 
@@ -65,6 +67,7 @@ export default function Home() {
         <div id="properties">
           <FeaturedProperties />
         </div>
+        <SavedProperties />
         <div id="showcase">
           <DynamicThreeDShowcase />
         </div>

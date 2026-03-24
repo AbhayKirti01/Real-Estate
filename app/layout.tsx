@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Experience premium real estate with Abhay Kirti. Cinematic property journeys, smart investments, and luxury living.",
 };
 
+import { SavedPropertiesProvider } from "@/components/SavedPropertiesContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased scroll-smooth`} suppressHydrationWarning>
       <body className="bg-[#050505] text-white selection:bg-accent selection:text-white" suppressHydrationWarning>
-        {children}
+        <SavedPropertiesProvider>
+          {children}
+        </SavedPropertiesProvider>
       </body>
     </html>
   );

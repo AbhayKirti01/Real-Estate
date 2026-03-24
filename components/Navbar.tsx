@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from 'motion/react'
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, Heart } from 'lucide-react'
+import { useSavedProperties } from './SavedPropertiesContext'
 
 const NAV_LINKS = [
   { name: 'Home', href: '#home' },
@@ -15,6 +16,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { savedProperties } = useSavedProperties()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +27,13 @@ export default function Navbar() {
   }, [])
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const target = document.querySelector(href)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+        setIsMobileMenuOpen(false)
+      }
     }
   }
 
@@ -59,7 +63,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-10">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
@@ -71,6 +75,21 @@ export default function Navbar() {
                 <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            
+            {/* Saved Properties Link */}
+            <a
+              href="#saved"
+              onClick={(e) => scrollToSection(e, '#saved')}
+              className="flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] font-bold text-white/60 hover:text-accent transition-all duration-300 relative group"
+            >
+              <Heart className={`w-3 h-3 ${savedProperties.length > 0 ? 'fill-accent text-accent' : ''}`} />
+              <span>Saved</span>
+              {savedProperties.length > 0 && (
+                <span className="absolute -top-2 -right-4 w-4 h-4 rounded-full bg-accent text-white text-[8px] flex items-center justify-center font-black animate-in zoom-in duration-300">
+                  {savedProperties.length}
+                </span>
+              )}
+            </a>
           </div>
 
           {/* CTA Button */}
@@ -82,9 +101,17 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 flex items-center gap-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
+            {savedProperties.length > 0 && (
+              <div className="relative">
+                <Heart className="w-5 h-5 fill-accent text-accent" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white text-accent text-[6px] flex items-center justify-center font-black">
+                  {savedProperties.length}
+                </span>
+              </div>
+            )}
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
