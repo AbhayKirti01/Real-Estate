@@ -43,7 +43,11 @@ export function SavedPropertiesProvider({ children }: { children: React.ReactNod
 
   // Save to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('savedProperties', JSON.stringify(savedProperties))
+    try {
+      localStorage.setItem('savedProperties', JSON.stringify(savedProperties))
+    } catch (e) {
+      console.error('Failed to save properties to localStorage', e)
+    }
   }, [savedProperties])
 
   const saveProperty = (property: Property) => {

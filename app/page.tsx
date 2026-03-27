@@ -72,7 +72,7 @@ export default function Home() {
           <DynamicThreeDShowcase />
         </div>
         <TrustSection />
-        <div id="contact">
+        <div>
           <ContactSection />
         </div>
         <Footer />

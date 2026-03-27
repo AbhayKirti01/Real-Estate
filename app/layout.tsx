@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased scroll-smooth`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} antialiased`} suppressHydrationWarning>
       <body className="bg-[#050505] text-white selection:bg-accent selection:text-white" suppressHydrationWarning>
         <SavedPropertiesProvider>
           {children}

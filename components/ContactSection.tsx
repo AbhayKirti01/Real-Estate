@@ -33,7 +33,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-serif font-black tracking-tighter leading-tight mb-8"
           >
-            LET'S START <br /> <span className="italic text-accent">YOUR JOURNEY</span>
+            LET&apos;S START <br /> <span className="italic text-accent">YOUR JOURNEY</span>
           </motion.h2>
           
           <motion.p 
