@@ -145,11 +145,23 @@ export default function PropertyModal({ property, isOpen, onClose }: PropertyMod
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-accent text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-white hover:text-accent transition-all duration-500">
+                <button 
+                  onClick={() => {
+                    onClose()
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="flex-1 bg-accent text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-white hover:text-accent transition-all duration-500"
+                >
                   <Phone className="w-4 h-4" />
                   Book a Tour
                 </button>
-                <button className="flex-1 glass py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-500">
+                <button 
+                  onClick={() => {
+                    onClose()
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="flex-1 glass py-4 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-white/10 transition-all duration-500"
+                >
                   <Mail className="w-4 h-4" />
                   Inquire Now
                 </button>

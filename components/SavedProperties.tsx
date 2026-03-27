@@ -58,7 +58,7 @@ export default function SavedProperties() {
                 onClick={() => openModal(property)}
               >
                 {/* Image */}
-                <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-110">
+                <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-105">
                   <Image
                     src={property.image}
                     alt={property.title}
@@ -92,7 +92,7 @@ export default function SavedProperties() {
                   </h3>
                   
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-white/40 text-[10px]">
+                    <div className="flex items-center gap-2 text-white/40 text-[10px] group-hover:text-accent transition-colors duration-500">
                       <MapPin className="w-3 h-3" />
                       <span>{property.location}</span>
                     </div>

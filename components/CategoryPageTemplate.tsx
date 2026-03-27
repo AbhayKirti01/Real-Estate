@@ -81,7 +81,7 @@ export default function CategoryPageTemplate({ title, subtitle, properties }: Ca
                 src={property.image}
                 alt={property.title}
                 fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
@@ -94,7 +94,7 @@ export default function CategoryPageTemplate({ title, subtitle, properties }: Ca
                   {property.title}
                 </h3>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-white/40 text-xs">
+                  <div className="flex items-center gap-2 text-white/40 text-xs group-hover:text-accent transition-colors duration-300">
                     <MapPin className="w-3 h-3" />
                     {property.location}
                   </div>

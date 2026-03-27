@@ -94,7 +94,10 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="px-8 py-3 rounded-full bg-accent text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-accent transition-all duration-500 shadow-xl shadow-accent/20">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-3 rounded-full bg-accent text-white font-bold uppercase tracking-widest text-[10px] hover:bg-white hover:text-accent transition-all duration-500 shadow-xl shadow-accent/20"
+            >
               Book a Tour
             </button>
           </div>
@@ -160,7 +163,13 @@ export default function Navbar() {
                 <Phone className="w-4 h-4 text-accent" />
                 <span className="text-sm">+1 (555) 000-0000</span>
               </div>
-              <button className="w-full py-5 bg-accent text-white font-bold uppercase tracking-widest text-xs rounded-2xl">
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="w-full py-5 bg-accent text-white font-bold uppercase tracking-widest text-xs rounded-2xl"
+              >
                 Inquire Now
               </button>
             </div>

@@ -112,7 +112,10 @@ export default function Hero() {
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
             </button>
             
-            <button className="glass px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all duration-500 border border-white/10">
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="glass px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all duration-500 border border-white/10"
+            >
               Contact Now
             </button>
           </motion.div>

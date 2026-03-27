@@ -14,7 +14,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="relative py-32 px-6 bg-[#050505]">
+    <section id="contact" className="relative py-32 px-6 bg-[#050505]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <div className="relative z-10">
           <motion.p 
